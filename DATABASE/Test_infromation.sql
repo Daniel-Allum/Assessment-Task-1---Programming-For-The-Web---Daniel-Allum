@@ -7,8 +7,8 @@
 --                 VALUES("Derek", "password1"),
 --                         ("Erika", "password2");
 
-INSERT INTO Reviews(Date, Review, Rating, MovieID, UserID)
-                VALUES(CURRENT_DATE, "Greatest movie ever made, incredible in every aspect.", 5, 1, 1),
-                        (CURRENT_DATE, "Flawless film.", 5, 1, 2),
-                        (CURRENT_DATE, "Emotionally powerful media from start to finish, amazing plot twist.", 5, 2, 1),
-                        (CURRENT_DATE, "Near perfect film with amazing direction/storytelling, tied together with amazing cast.", 5, 3, 2);
+-- INSERT INTO Reviews(Date, Review, Rating, MovieID, UserID)
+--                 VALUES(CURRENT_DATE, "Greatest movie ever made, incredible in every aspect.", 5, 1, 1),
+--                         (CURRENT_DATE, "Flawless film.", 5, 1, 2),
+--                         (CURRENT_DATE, "Emotionally powerful media from start to finish, amazing plot twist.", 5, 2, 1),
+--                         (CURRENT_DATE, "Near perfect film with amazing direction/storytelling, tied together with amazing cast.", 5, 3, 2);
