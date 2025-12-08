@@ -16,4 +16,25 @@ def index():
     return render_template("index.html", movies=movies)
 
 
+@app.route("/movie/<int:id>")
+def movie_page(id):
+    db = sqlite3.connect(DB)
+    db.row_factory = sqlite3.Row
+
+    movie = db.execute("SELECT * FROM Movies WHERE id = ?", (id,)).fetchone()
+
+    reviews = db.execute(
+        """
+        SELECT Reviews.*, Users.username 
+        FROM Reviews 
+        JOIN Users ON Reviews.UserID = Users.id
+        WHERE MovieID = ?
+    """,
+        (id,),
+    ).fetchall()
+
+    db.close()
+    return render_template("movie.html", movie=movie, reviews=reviews)
+
+
 app.run(debug=True, port=5000)
