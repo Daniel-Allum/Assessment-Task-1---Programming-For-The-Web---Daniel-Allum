@@ -50,4 +50,22 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        db = sqlite3.connect(DB)
+        db.row_factory = sqlite3.Row
+        user = db.execute("SELECT * FROM Users WHERE username = ?", (username,)).fet
+        db.close()
+
+        if user and check_password_hash(user["password"], password):
+            session["user_id"] = user["id"]
+            return redirect("/")
+        else:
+            return "Incorrect username or password"
+    return render_template("login.html")
+
+
 app.run(debug=True, port=5000)
